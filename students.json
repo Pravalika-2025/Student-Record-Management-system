@@ -1,0 +1,23 @@
+[
+    {
+        "student_id": 101,
+        "name": "arun",
+        "age": 20,
+        "department": "cse",
+        "marks": 80.0
+    },
+    {
+        "student_id": 102,
+        "name": "rainy",
+        "age": 20,
+        "department": "cse",
+        "marks": 85.0
+    },
+    {
+        "student_id": 103,
+        "name": "prava",
+        "age": 20,
+        "department": "eee",
+        "marks": 90.0
+    }
+]
