@@ -1,10 +1,10 @@
 [
     {
         "student_id": 101,
-        "name": "arun",
+        "name": "priya",
         "age": 20,
         "department": "cse",
-        "marks": 80.0
+        "marks": 95.0
     },
     {
         "student_id": 102,
@@ -19,5 +19,12 @@
         "age": 20,
         "department": "eee",
         "marks": 90.0
+    },
+    {
+        "student_id": 104,
+        "name": "Pravalika",
+        "age": 20,
+        "department": "ECE",
+        "marks": 80.0
     }
 ]

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Update Student - EduManage</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>🎓 EduManage</h2>
+
+    <p class="side-title">MAIN MENU</p>
+
+    <a href="/">🏠 Dashboard</a>
+    <a href="/search">🔍 Search Student</a>
+    <a href="/add-student">➕ Add Student</a>
+    <a href="/update-student" class="active">✏️ Update Student</a>
+
+    <div class="sidebar-bottom">
+        <p>Student Management System</p>
+        <small>Version 1.0</small>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <header>
+        <div>
+            <h1>Update Student</h1>
+            <p>Modify existing student information.</p>
+        </div>
+
+        <div class="profile">👤 Admin</div>
+    </header>
+
+    <section class="content-card form-card">
+
+        <h2>✏️ Update Student Details</h2>
+
+        <p class="form-description">
+            Enter the Student ID and update the required details.
+        </p>
+
+        {% if message %}
+            <div class="{% if success %}success-message{% else %}error-message{% endif %}">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <form method="POST" action="/update-student">
+
+            <div class="form-group">
+                <label>Student ID</label>
+                <input type="number"
+                       name="student_id"
+                       value="{{ student.student_id if student else '' }}"
+                       placeholder="Enter Student ID"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Student Name</label>
+                <input type="text"
+                       name="name"
+                       value="{{ student.name if student else '' }}"
+                       placeholder="Enter new name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number"
+                       name="age"
+                       value="{{ student.age if student else '' }}"
+                       min="1"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text"
+                       name="department"
+                       value="{{ student.department if student else '' }}"
+                       placeholder="Enter department"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Marks</label>
+                <input type="number"
+                       name="marks"
+                       value="{{ student.marks if student else '' }}"
+                       min="0"
+                       max="100"
+                       step="0.01"
+                       required>
+            </div>
+
+            <div class="form-buttons">
+
+                <button type="submit" class="save-btn">
+                    💾 Update Student
+                </button>
+
+                <a href="/" class="cancel-btn">Cancel</a>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</div>
+
+</body>
+</html>

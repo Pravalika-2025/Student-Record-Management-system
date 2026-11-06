@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student - EduManage</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>🎓 EduManage</h2>
+    <p class="side-title">MAIN MENU</p>
+
+    <a href="/">🏠 Dashboard</a>
+    <a href="/search" class="active">🔍 Search Student</a>
+    <a href="/add-student">➕ Add Student</a>
+
+    <div class="sidebar-bottom">
+        <p>Student Management System</p>
+        <small>Version 1.0</small>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <header>
+        <div>
+            <h1>Search Student</h1>
+            <p>Find student details using Student ID.</p>
+        </div>
+        <div class="profile">👤 Admin</div>
+    </header>
+
+    <section class="content-card form-card">
+
+        <h2>🔍 Find a Student</h2>
+        <p class="form-description">
+            Enter the Student ID to view the record.
+        </p>
+
+        <form method="POST" action="/search">
+
+            <div class="form-group">
+                <label>Student ID</label>
+                <input type="number"
+                       name="student_id"
+                       placeholder="Enter Student ID"
+                       required>
+            </div>
+
+            <button type="submit" class="save-btn">
+                Search Student
+            </button>
+
+        </form>
+
+        {% if message %}
+            <div class="error-message" style="margin-top:20px;">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        {% if student %}
+
+            <div class="student-result">
+
+                <h2>Student Details</h2>
+
+                <p><strong>Student ID:</strong> {{ student.student_id }}</p>
+                <p><strong>Name:</strong> {{ student.name }}</p>
+                <p><strong>Age:</strong> {{ student.age }}</p>
+                <p><strong>Department:</strong> {{ student.department }}</p>
+                <p><strong>Marks:</strong> {{ student.marks }}</p>
+
+            </div>
+
+        {% endif %}
+
+        <a href="/" class="back-link">← Back to Dashboard</a>
+
+    </section>
+
+</div>
+
+</body>
+</html>
